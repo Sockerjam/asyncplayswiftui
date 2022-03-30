@@ -20,53 +20,5 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "0725FA0B-8611-4903-B85F-A2AB7773AAD8"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Async/Views/ContentView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "16"
-            endingLineNumber = "16"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "0725FA0B-8611-4903-B85F-A2AB7773AAD8 - 34aa6700c82946b1"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Async.ContentView.body.getter : some"
-                  moduleName = "Async"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/niclasjeppsson/iOSProjects/Async/Async/Views/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "104">
-               </Location>
-               <Location
-                  uuid = "0725FA0B-8611-4903-B85F-A2AB7773AAD8 - 4676f683f87d7e4"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; Swift.Optional&lt;SwiftUI._ConditionalContent&lt;SwiftUI._ConditionalContent&lt;Async.ButtonView, Async.ListView&gt;, Async.ActivityIndicatorView&gt;&gt; in Async.ContentView.body.getter : some"
-                  moduleName = "Async"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/niclasjeppsson/iOSProjects/Async/Async/Views/ContentView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "16"
-                  endingLineNumber = "16"
-                  offsetFromSymbolStart = "1784">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

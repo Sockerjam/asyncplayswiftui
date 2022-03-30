@@ -15,15 +15,19 @@ struct ContentView: View {
 
         VStack {
 
-            if viewModel.breweries.isEmpty && viewModel.error == nil && viewModel.showActivityIndicator == false {
+            switch (viewModel.breweries.isEmpty, viewModel.error == nil, viewModel.showActivityIndicator == false) {
+            case (true, true, true):
                 ButtonView(viewModel: viewModel)
-            } else if !viewModel.breweries.isEmpty && viewModel.showActivityIndicator == false {
+            case (false, true, true):
                 ListView(viewModel: viewModel)
-            } else if viewModel.showActivityIndicator {
+            case (true, true, false):
                 ActivityIndicatorView()
+            case (true, false, true):
+                Text(viewModel.error?.localizedDescription ?? "Error Retreiving data")
+            default:
+                Text(viewModel.error?.localizedDescription ?? "Something Went Wrong")
             }
         }
-
     }
 }
 

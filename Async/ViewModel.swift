@@ -40,7 +40,9 @@ class ViewModel: BrewManagerDelegate, ObservableObject {
     }
 
     func handle(error: NetworkError) {
-        self.error = error
+        DispatchQueue.main.async {
+            self.error = error
+        }
     }
     
 }
