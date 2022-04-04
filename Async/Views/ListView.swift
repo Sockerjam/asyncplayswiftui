@@ -9,10 +9,10 @@ import SwiftUI
 
 struct ListView: View {
 
-    var viewModel: ViewModel
+    var breweries: [Breweries]
 
     var body: some View {
-        List(viewModel.breweries, id: \.self) { brewery in
+        List(breweries, id: \.self) { brewery in
             HStack(alignment: .top) {
                 VStack(alignment: .leading) {
                     Text(brewery.name)
@@ -28,11 +28,5 @@ struct ListView: View {
                     .fontWeight(.regular)
             }
         }
-    }
-}
-
-struct ListView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListView(viewModel: ViewModel())
     }
 }

@@ -12,12 +12,17 @@ protocol ViewModelDelegate {
     func dismissLoadingScreen()
 }
 
+enum BrewResponse {
+    case start
+    case success([Breweries])
+    case error(NetworkError)
+    case loading
+}
+
 class ViewModel: BrewManagerDelegate, ObservableObject {
 
 
-    @Published var breweries: [Breweries] = []
-    @Published var error: NetworkError?
-    @Published var showActivityIndicator: Bool = false
+    @Published var brewresponse: BrewResponse = .start
 
     var brewManager: BrewManager
     var delegate: ViewModelDelegate?
@@ -29,19 +34,18 @@ class ViewModel: BrewManagerDelegate, ObservableObject {
 
     func getBreweries() {
         brewManager.requestBreweries()
-        showActivityIndicator = true
+        brewresponse = .loading
     }
 
     func update(breweries: [Breweries]) {
         DispatchQueue.main.async {
-            self.breweries = breweries
-            self.showActivityIndicator = false
+            self.brewresponse = .success(breweries)
         }
     }
 
     func handle(error: NetworkError) {
         DispatchQueue.main.async {
-            self.error = error
+            self.brewresponse = .error(error)
         }
     }
     
