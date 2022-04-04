@@ -18,14 +18,15 @@ class BrewManager {
 
     func requestBreweries() {
         Task {
-            let brewData = await NetworkRequest.getBreweries(model: Breweries.self)
-
-            switch brewData {
-            case .success(let breweries):
-                delegate?.update(breweries: breweries)
-            case .failure(let networkError):
-                delegate?.handle(error: networkError)
+            do {
+                let brewData = try await NetworkRequest.getBreweries(model: Breweries.self)
+                delegate?.update(breweries: brewData)
+            } catch {
+                delegate?.handle(error: error as! NetworkError)
             }
+
+
+
         }
     }
 }
