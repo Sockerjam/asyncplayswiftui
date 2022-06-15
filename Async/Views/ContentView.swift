@@ -23,16 +23,17 @@ struct ContentView: View {
             case .success(let breweries):
                 ListView(breweries: breweries)
             case .error(let error):
-                Text(error.localizedDescription)
+                VStack {
+                    Text(error.localizedDescription)
+                    Button {
+                        viewModel.getBrews()
+                    } label: {
+                        Text("Try Again")
+                    }
 
+                }
             }
 
         }
-    }
-}
-
-struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView(viewModel: ViewModel())
     }
 }

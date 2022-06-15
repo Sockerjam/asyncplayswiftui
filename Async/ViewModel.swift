@@ -6,11 +6,7 @@
 //
 
 import Foundation
-
-protocol ViewModelDelegate {
-    func showLoadingScreen()
-    func dismissLoadingScreen()
-}
+import Combine
 
 enum BrewResponse {
     case start
@@ -24,8 +20,9 @@ class ViewModel: BrewManagerDelegate, ObservableObject {
 
     @Published var brewresponse: BrewResponse = .start
 
+    var cancellables = Set<AnyCancellable>()
+
     var brewManager: BrewManager
-    var delegate: ViewModelDelegate?
 
     init() {
         brewManager = BrewManager()
@@ -47,6 +44,22 @@ class ViewModel: BrewManagerDelegate, ObservableObject {
         DispatchQueue.main.async {
             self.brewresponse = .error(error)
         }
+    }
+
+    func getBrews() {
+        brewManager.brewPublisher()
+            .receive(on: RunLoop.main)
+            .sink { completion in
+                switch completion {
+                case .failure(let error):
+                    self.brewresponse = .error(error)
+                case .finished:
+                    print("Completed")
+                }
+            } receiveValue: { breweries in
+                self.brewresponse = .success(breweries)
+            }.store(in: &cancellables)
+
     }
     
 }

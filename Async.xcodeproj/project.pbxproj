@@ -86,9 +86,9 @@
 		9233A5A227F4B2CE007C06F3 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				9200B96B27F352CF00F29605 /* BrewManager.swift */,
-				9200B96D27F353AA00F29605 /* NetworkRequest.swift */,
 				9200B96F27F353C600F29605 /* Breweries.swift */,
+				9200B96D27F353AA00F29605 /* NetworkRequest.swift */,
+				9200B96B27F352CF00F29605 /* BrewManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";

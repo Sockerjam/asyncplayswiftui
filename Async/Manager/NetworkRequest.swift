@@ -11,6 +11,7 @@ enum NetworkError: Error {
     case badURL
     case decodingFailed
     case badResponse
+    case noInternet
 }
 
 enum NetworkRequest {

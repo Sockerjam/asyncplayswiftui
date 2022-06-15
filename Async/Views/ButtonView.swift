@@ -13,7 +13,7 @@ struct ButtonView: View {
 
     var body: some View {
         Button {
-            viewModel.getBreweries()
+            viewModel.getBrews()
         } label: {
             Text("Get Brews")
                 .font(.headline)
